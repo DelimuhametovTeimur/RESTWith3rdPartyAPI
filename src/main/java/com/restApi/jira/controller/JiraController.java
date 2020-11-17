@@ -1,6 +1,6 @@
-package com.restApi.jira.controller.jira;
+package com.restApi.jira.controller;
 
-import com.restApi.jira.service.jira.impl.JiraServiceImplementation;
+import com.restApi.jira.service.impl.JiraServiceImplementation;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.restApi.jira.utils.PageUri.*;
+import static com.restApi.jira.utils.PageUri.AUTH;
+import static com.restApi.jira.utils.PageUri.CREATE_SESSION;
+import static com.restApi.jira.utils.PageUri.CURRENT_USER;
 
 @RestController
 @RequiredArgsConstructor
@@ -27,6 +29,6 @@ public class JiraController {
     @GetMapping(CURRENT_USER)
     public ResponseEntity<String> getCurrentUser() {
         return ResponseEntity.ok("Hello " + jiraServiceImplementation.getCurrentUser().getBody().getName()
-        + " welcome back to JIRA!");
+                + " welcome back to JIRA!");
     }
 }

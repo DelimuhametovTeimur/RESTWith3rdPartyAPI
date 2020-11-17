@@ -1,5 +1,6 @@
-package com.restApi.jira.dto.issue;
+package com.restApi.jira.dto.editIssue;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,8 +11,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Component {
+public class Components {
 
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("set")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String set;
 }

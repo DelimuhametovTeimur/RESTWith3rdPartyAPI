@@ -15,12 +15,10 @@ public final class PageUri {
     public static final String GET_CURRENT_USER = "rest/auth/latest/session";
 
     //Project
-    public static final String GET_ALL_PROJECTS = "rest/api/2/project";
+    public static final String GET_PROJECT = "rest/api/2/project/";
     
     //Issue
-    public static final String CREATE_ISSUE = "rest/api/2/issue/";
-    public static final String DELETE_ISSUE = "rest/api/2/issue/";
-    public static final String GET_ALL_ISSUES_ASSIGNED_TO_USER = "rest/api/2/search?jql=project=IIA AND assignee=";
+    public static final String REST_ISSUE = "rest/api/2/issue/";
 
     public static final String CREATE_SESSION = "/createNewSession";
     public static final String AUTH = "/auth";
@@ -29,7 +27,14 @@ public final class PageUri {
     public static final String ISSUE = "/issue";
     public static final String CREATE = "/create";
     public static final String DELETE = "/delete/{id}";
-    public static final String ASSIGNED_TO_USER = "/getTaskAssignedToUser/{username}";
-    public static final String ALL = "/all";
+    public static final String ASSIGNEE_ISSUE = "/assignee/{key}";
+    public static final String ASSIGNEE = "/assignee";
+    public static final String KEY = "/{key}";
+
+    public static final String EDIT_ISSUE = "/edit/{id}";
+
+    public static final String COMMENT = "/comment";
+    public static final String ADD_COMMENT = "/{id}/comment/add";
+    public static final String DELETE_COMMENT = "/{issueId}/comment/delete/{commentId}";
 
 }

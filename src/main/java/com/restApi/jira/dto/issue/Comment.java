@@ -1,5 +1,6 @@
-package com.restApi.jira.dto.quote;
+package com.restApi.jira.dto.issue;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Value {
-        private Long id;
-        private String quote;
+public class Comment {
+
+    @JsonProperty("body")
+    private String body;
 }
