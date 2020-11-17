@@ -1,10 +1,10 @@
-package com.restApi.jira.service.jira.impl;
+package com.restApi.jira.service.impl;
 
 import com.restApi.jira.dto.jira.CurrentUser;
 import com.restApi.jira.dto.jira.SessionResponse;
 import com.restApi.jira.dto.jira.SessionValue;
 import com.restApi.jira.exception.EmptyFieldException;
-import com.restApi.jira.service.jira.JiraService;
+import com.restApi.jira.service.JiraService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -15,7 +15,9 @@ import org.springframework.web.client.RestTemplate;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.restApi.jira.utils.PageUri.*;
+import static com.restApi.jira.utils.PageUri.JIRA_BASE_URL;
+import static com.restApi.jira.utils.PageUri.CREATE_SESSION_URL;
+import static com.restApi.jira.utils.PageUri.GET_CURRENT_USER;
 
 @Service
 @RequiredArgsConstructor
@@ -38,18 +40,17 @@ public class JiraServiceImplementation implements JiraService {
         Map<String, String> body = new HashMap<>();
         body.put("username", username);
         body.put("password", password);
-        if (body.isEmpty()){
+        if (body.isEmpty()) {
             try {
                 throw new EmptyFieldException("Please add your JIRA credentials to application properties");
             } catch (EmptyFieldException e) {
                 e.printStackTrace();
             }
         }
-
         HttpEntity request = new HttpEntity<>(body, headers);
         sessionValue.setSessionValue(
-            restTemplate.postForEntity(JIRA_BASE_URL + CREATE_SESSION_URL, request,
-            SessionResponse.class).getBody().getSession().getValue());
+                restTemplate.postForEntity(JIRA_BASE_URL + CREATE_SESSION_URL, request,
+                        SessionResponse.class).getBody().getSession().getValue());
     }
 
     @Override

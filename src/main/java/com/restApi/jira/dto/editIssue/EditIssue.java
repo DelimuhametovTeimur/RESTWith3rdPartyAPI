@@ -1,4 +1,4 @@
-package com.restApi.jira.dto.issue;
+package com.restApi.jira.dto.editIssue;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -10,8 +10,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Component {
+public class EditIssue {
 
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("update")
+    private Update update;
 }
